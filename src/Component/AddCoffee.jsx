@@ -4,42 +4,42 @@ import Navbar from "./Navbar";
 const AddCoffee = () => {
 
 
-const handelAddCoffee=(e)=>{
-e.preventDefault()
-const form = e.target
-const name = form.name.value
-const chef = form.chef.value
-const supplier = form.supplier.value
-const test = form.test.value
-const category = form.category.value
-const  details= form.details.value
-const  photo= form.photo.value
+    const handelAddCoffee = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const chef = form.chef.value
+        const supplier = form.supplier.value
+        const test = form.test.value
+        const category = form.category.value
+        const details = form.details.value
+        const photo = form.photo.value
 
-const coffeeData ={name,photo,chef,supplier,test,category,details};
-console.log(coffeeData);
-
-
-fetch('http://localhost:5000/coffee',{
-
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'  
-    },
-    body: JSON.stringify(coffeeData),
-})
-
-.then(res=>res.json())
-.then(data=>{
-if(data.insertedId){
-alert('added successfully')
-
-}
-
-})
+        const coffeeData = { name, photo, chef, supplier, test, category, details };
+        console.log(coffeeData);
 
 
+        fetch('http://localhost:5000/coffee', {
 
-}
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(coffeeData),
+        })
+
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('added successfully')
+
+                }
+
+            })
+
+
+
+    }
 
 
 
@@ -71,7 +71,7 @@ alert('added successfully')
                                 </div>
                                 <div className="row flex gap-4">
                                     <div className="form-control ">
-                                        <input type="text" placeholder="Supplier" name="supplier" className="input input-bordered p-4 h-4 "  />
+                                        <input type="text" placeholder="Supplier" name="supplier" className="input input-bordered p-4 h-4 " />
                                     </div>
                                     <div className="form-control ">
                                         <input type="text" placeholder="Test" name="test" className="input input-bordered p-4 h-4 " required />
@@ -82,13 +82,13 @@ alert('added successfully')
                                         <input type="text" placeholder="Category" name="category" className="input input-bordered p-4 h-4 " />
                                     </div>
                                     <div className="form-control ">
-                                        <input type="text" placeholder="Details" name="details" className="input input-bordered p-4 h-4 "  />
+                                        <input type="text" placeholder="Details" name="details" className="input input-bordered p-4 h-4 " />
                                     </div>
                                 </div>
-                               
+
                                 <div className="form-control ">
-                                        <input type="text" placeholder="Photo URL" name="photo" className="input input-bordered p-4 h-4 " required />
-                                    </div>
+                                    <input type="text" placeholder="Photo URL" name="photo" className="input input-bordered p-4 h-4 " required />
+                                </div>
 
 
 
