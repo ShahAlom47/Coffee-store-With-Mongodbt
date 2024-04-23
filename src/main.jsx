@@ -15,6 +15,7 @@ import Home from './Component/Home.jsx';
 import Login from './Component/Login.jsx';
 import Register from './Component/Register.jsx';
 import AuthProvider from './AuthProvider.jsx';
+import Users from './Component/Users.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,9 +39,15 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login></Login>
   },
+  
   {
     path: "/register",
     element: <Register></Register>
+  },
+  {
+    path: "/users",
+    element: <Users></Users>,
+    loader:()=>fetch ('http://localhost:5000/user')
   },
 ]);
 

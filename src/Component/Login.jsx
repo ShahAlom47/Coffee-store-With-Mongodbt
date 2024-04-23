@@ -4,10 +4,10 @@ import Navbar from "./Navbar";
 import { AuthContext } from "../AuthProvider";
 import { useContext } from "react";
 const Login = () => {
-   
+
 
     // const auth = getAuth();
-    const { loginUser} = useContext(AuthContext)
+    const { loginUser } = useContext(AuthContext)
 
     const handelLogin = (e) => {
         e.preventDefault();
@@ -15,10 +15,26 @@ const Login = () => {
         const email = form.email.value
         const pass = form.password.value
         console.log(email, pass);
-       
-        loginUser( email, pass)
-            .then(() => {
-            
+
+
+        loginUser(email, pass)
+            .then((data) => {
+                const logTime = data.user?.metadata?.lastSignInTime
+                const user = { email, logTime }
+
+                fetch('http://localhost:5000/user', {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body:JSON.stringify(user)
+                }
+                
+                )
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+
+
                 // const user = userCredential.user;
                 alert('LogIn Success');
             })
