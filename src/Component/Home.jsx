@@ -1,4 +1,4 @@
-import { data } from "autoprefixer";
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
@@ -13,7 +13,7 @@ const [uiUpdate,setUiUpdate]=useState('')
     const [coffeeData, setCoffeeData] = useState([]);
     useEffect(() => {
 
-        fetch('http://localhost:5000/coffee')
+        fetch('https://coffee-store-server-six-ecru.vercel.app/coffee')
             .then(res => res.json())
             .then(data => setCoffeeData(data))
     }, [uiUpdate])
@@ -37,7 +37,7 @@ const [uiUpdate,setUiUpdate]=useState('')
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/coffee/${_id}`, {
+                fetch(`https://coffee-store-server-six-ecru.vercel.app/coffee/${_id}`, {
 
                     method: 'DELETE',
                     headers: {

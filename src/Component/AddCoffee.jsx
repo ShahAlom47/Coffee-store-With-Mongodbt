@@ -19,7 +19,7 @@ const AddCoffee = () => {
         console.log(coffeeData);
 
 
-        fetch('http://localhost:5000/coffee', {
+        fetch('https://coffee-store-server-six-ecru.vercel.app/coffee', {
 
             method: 'POST',
             headers: {

@@ -24,7 +24,7 @@ const handelEditCoffee=(e)=>{
     const coffeeData ={name,photo,chef,supplier,test,category,details};
     // console.log(coffeeData);
 
-    fetch(`http://localhost:5000/coffee/${_id}`,{
+    fetch(`https://coffee-store-server-six-ecru.vercel.app/coffee/${_id}`,{
 
     method: 'PUT',
     headers: {

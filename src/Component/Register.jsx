@@ -38,7 +38,7 @@ const Register = () => {
                 });
 
 
-                fetch('http://localhost:5000/user', {
+                fetch('https://coffee-store-server-six-ecru.vercel.app/user', {
 
                     method: 'POST',
                     headers: {
